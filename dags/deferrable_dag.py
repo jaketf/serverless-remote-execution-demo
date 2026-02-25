@@ -23,6 +23,6 @@ with DAG(
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
 ) as dag:
-    wait = TimeDeltaSensorAsync(task_id="wait", delta=datetime.timedelta(minutes=2))
+    wait = TimeDeltaSensorAsync(task_id="wait", delta=datetime.timedelta(seconds=30))
     finish = EmptyOperator(task_id="finish")
     wait >> finish
